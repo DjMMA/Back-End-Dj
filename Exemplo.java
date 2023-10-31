@@ -7,7 +7,7 @@ public class Exemplo {
     public static void main(String[] args) {
         Aluno aluno = new Aluno();
         aluno.setMatricula(100);
-        aluno.setNome("Daniel");
+        // aluno.setNome("Daniel");
         System.out.println(aluno.getNome());
     }
 }

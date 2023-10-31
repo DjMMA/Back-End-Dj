@@ -6,28 +6,28 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 
-import br.ufac.sgcm.model.Especialidade;
+import br.ufac.sgcm.model.Unidade;
 
-public class EspecialidadeDao implements IDao<Especialidade> {
+public class UnidadeDao implements IDao<Unidade> {
 
     private Connection conexao;
     private PreparedStatement ps;
     private ResultSet rs;
 
-    public EspecialidadeDao() {
+    public UnidadeDao() {
         conexao = ConexaoDB.getConexao();
     }
 
     @Override
-    public List<Especialidade> get() {
+    public List<Unidade> get() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'get'");
     }
 
     @Override
-    public Especialidade get(Long id) {
-        Especialidade registro = new Especialidade();
-        String sql = "SELECT * FROM especialidade WHERE id=?";
+    public Unidade get(Long id) {
+        Unidade registro = new Unidade();
+        String sql = "SELECT * FROM unidade WHERE id=?";
         try {
             ps = conexao.prepareStatement(sql);
             ps.setLong(1, id);
@@ -35,6 +35,7 @@ public class EspecialidadeDao implements IDao<Especialidade> {
             if (rs.next()) {
                 registro.setId(rs.getLong("id"));
                 registro.setNome(rs.getString("nome"));
+                registro.setEndereco(rs.getString("endereco"));
             }
         } catch (SQLException e) {
             e.printStackTrace();
@@ -43,19 +44,19 @@ public class EspecialidadeDao implements IDao<Especialidade> {
     }
 
     @Override
-    public List<Especialidade> get(String termoBusca) {
+    public List<Unidade> get(String termoBusca) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'get'");
     }
 
     @Override
-    public int insert(Especialidade objeto) {
+    public int insert(Unidade objeto) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'insert'");
     }
 
     @Override
-    public int update(Especialidade objeto) {
+    public int update(Unidade objeto) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'update'");
     }
